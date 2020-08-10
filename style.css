@@ -1,0 +1,11 @@
+body {
+    font-size: 16px;
+}
+
+.form-control {
+    font-size: 12px;
+}
+
+#details {
+    overflow-y: auto;
+}

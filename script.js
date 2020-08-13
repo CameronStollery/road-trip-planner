@@ -1,9 +1,8 @@
-// Create the script tag, set the appropriate attributes
+// Initialise map
 var script = document.createElement('script');
-script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCRAeGhrzejPYOHdanLUlW7UGrFAV7Voy8&callback=initMap';
+script.src = 'https://maps.googleapis.com/maps/api/js?key=&callback=initMap';
 script.defer = true;
 
-// Attach your callback function to the `window` object
 window.initMap = function() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -37.8136, lng: 144.9631},
@@ -11,5 +10,8 @@ window.initMap = function() {
       });
 };
 
-// Append the 'script' element to 'head'
 document.head.appendChild(script);
+
+$('#addPerson').on('click', function(){
+  alert('testttt');
+});

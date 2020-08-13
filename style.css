@@ -2,10 +2,31 @@ body {
     font-size: 16px;
 }
 
-.form-control {
+.form-control, label {
     font-size: 12px;
 }
 
 #details {
     overflow-y: auto;
+}
+
+.delete {
+    font-size: 2rem;
+    color: red;
+}
+
+.input-row {
+    border-radius: 15px;
+}
+
+.person {
+    background-color: lightsteelblue;
+}
+
+.destination {
+    background-color: antiquewhite;
+}
+
+.constraint {
+    background-color: lightcoral;
 }

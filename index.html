@@ -22,32 +22,87 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div id="details" class="col-md-7 bg-light vh-100">
-                    <h1>Road Trip Pickup Planner</h1>
-                    <form class="form-row" action="" method="get">
-                        <div class="col-2">
-                            <label class="sr-only" for="name-1">Name</label>
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="name-1" placeholder="Name">
-                        </div>
-                        <div class="col-4">
-                            <label class="sr-only" for="addr-1">Address</label>
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="addr-1" placeholder="Address">    
-                        </div>
-                        <div class="col-3">
-                            <label class="sr-only" for="pickup-1">Pick-up date</label>
-                            <input type="date" class="form-control mb-2 mr-sm-2" id="pickup-1" placeholder="Pick-up date">    
-                        </div>
-                        <div class="col-3">
-                            <label class="sr-only" for="dropoff-1">Drop-off date</label>
-                            <input type="date" class="form-control mb-2 mr-sm-2" id="dropoff-1" placeholder="Drop-off date">    
-                        </div>
-                    </form>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste optio, eum itaque, consectetur non possimus porro commodi repudiandae dolorem accusantium voluptatem veritatis minima quo, nisi veniam doloribus nesciunt quidem ad similique. Et sapiente fugit earum pariatur adipisci commodi nostrum nemo alias blanditiis, consequatur, rerum, laudantium eaque assumenda maiores? Magni fuga minima iure. Saepe praesentium minima inventore dolor quos laborum harum doloribus dolorem quaerat similique, id voluptas, odit neque nesciunt fugiat sint tempora laudantium numquam quibusdam optio reprehenderit suscipit? Labore, voluptatum! Odio consequatur alias ipsa sint libero natus quasi labore aperiam, distinctio similique tempora quam temporibus in soluta, dignissimos et.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste optio, eum itaque, consectetur non possimus porro commodi repudiandae dolorem accusantium voluptatem veritatis minima quo, nisi veniam doloribus nesciunt quidem ad similique. Et sapiente fugit earum pariatur adipisci commodi nostrum nemo alias blanditiis, consequatur, rerum, laudantium eaque assumenda maiores? Magni fuga minima iure. Saepe praesentium minima inventore dolor quos laborum harum doloribus dolorem quaerat similique, id voluptas, odit neque nesciunt fugiat sint tempora laudantium numquam quibusdam optio reprehenderit suscipit? Labore, voluptatum! Odio consequatur alias ipsa sint libero natus quasi labore aperiam, distinctio similique tempora quam temporibus in soluta, dignissimos et.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste optio, eum itaque, consectetur non possimus porro commodi repudiandae dolorem accusantium voluptatem veritatis minima quo, nisi veniam doloribus nesciunt quidem ad similique. Et sapiente fugit earum pariatur adipisci commodi nostrum nemo alias blanditiis, consequatur, rerum, laudantium eaque assumenda maiores? Magni fuga minima iure. Saepe praesentium minima inventore dolor quos laborum harum doloribus dolorem quaerat similique, id voluptas, odit neque nesciunt fugiat sint tempora laudantium numquam quibusdam optio reprehenderit suscipit? Labore, voluptatum! Odio consequatur alias ipsa sint libero natus quasi labore aperiam, distinctio similique tempora quam temporibus in soluta, dignissimos et.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste optio, eum itaque, consectetur non possimus porro commodi repudiandae dolorem accusantium voluptatem veritatis minima quo, nisi veniam doloribus nesciunt quidem ad similique. Et sapiente fugit earum pariatur adipisci commodi nostrum nemo alias blanditiis, consequatur, rerum, laudantium eaque assumenda maiores? Magni fuga minima iure. Saepe praesentium minima inventore dolor quos laborum harum doloribus dolorem quaerat similique, id voluptas, odit neque nesciunt fugiat sint tempora laudantium numquam quibusdam optio reprehenderit suscipit? Labore, voluptatum! Odio consequatur alias ipsa sint libero natus quasi labore aperiam, distinctio similique tempora quam temporibus in soluta, dignissimos et.</p>
+                <div id="details" class="col-lg-7 bg-light vh-100">
+                    <div class="container-lg">
+                        <h1 class="display-3">Road Trip Pickup Planner</h1>
+                        <form action="" method="get">
+                            <h3>Destination</h3>
+                            <div class="row input-row destination py-2 px-0 my-3">
+                                <div class="col-12">
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <label class="sr-only" for="addr-dest">Address</label>
+                                            <input type="text" class="form-control my-2 mr-sm-0" id="addr-dest" placeholder="Address">    
+                                        </div>
+                                        <div class="col-md-auto form-inline">
+                                            <label class="mr-2 mb-0" for="pickup-dest">Arrival date</label>
+                                            <input type="date" class="form-control my-2 mr-sm-0" id="pickup-dest" placeholder="Pick-up date">    
+                                        </div>
+                                        <div class="col-md-auto form-inline">
+                                            <label class="mr-2 mb-0" for="dropoff-dest">Departure date</label>
+                                            <input type="date" class="form-control my-2 mr-sm-0" id="dropoff-dest" placeholder="Drop-off date">    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>People</h3>
+                            <div class="row input-row person py-2 px-0 my-3">
+                                <div class="col-11">
+                                    <div class="form-row">
+                                        <div class="col-md-auto">
+                                            <label class="sr-only" for="name-1">Name</label>
+                                            <input type="text" class="form-control my-2 mr-sm-0" id="name-1" placeholder="Name">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="sr-only" for="addr-1">Address</label>
+                                            <input type="text" class="form-control my-2 mr-sm-0" id="addr-1" placeholder="Address">    
+                                        </div>
+                                        <div class="col-md-auto form-inline ml-2">
+                                              <input class="form-check-input" type="checkbox" id="hasCar-1">
+                                              <label class="form-check-label" for="hasCar-1">Has car</label>
+                                            </div>
+                                        <div class="col-md-auto form-inline">
+                                            <input type="number" min="0" max="50" class="form-control mr-2" id="passengers-1" placeholder="0" disabled="true">
+                                            <label class="" for="passengers-1">passenger seats available</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-auto form-inline">
+                                            <label class="mr-2 mb-0" for="pickup-1">Arriving</label>
+                                            <input type="date" class="form-control my-2 mr-sm-0" id="pickup-1" placeholder="Pick-up date">    
+                                        </div>
+                                        <div class="col-md-auto form-inline">
+                                            <label class="mr-2 mb-0" for="dropoff-1">Leaving</label>
+                                            <input type="date" class="form-control my-2 mr-sm-0" id="dropoff-1" placeholder="Drop-off date">    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 d-flex">
+                                    <button class="btn d-flex align-self-center delete">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button type="button" id="addPerson" class="btn btn-success my-4 mx-auto">
+                                <i class="fas fa-plus"></i>  Add person
+                                </button>
+                            </div>
+                            <h3>Constraints</h3>
+                            <div class="row">
+                                <button type="button" id="addConstraint" class="btn btn-success my-4 mx-auto">
+                                    <i class="fas fa-plus"></i>  Add constraint
+                                </button>
+                            </div>
+                            <div class="row">
+                                <button type="submit" id="submit" class="btn btn-lg btn-success my-3 mx-auto">
+                                    <i class="fas fa-car-side"></i>  Calculate
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div id="map" class="col-md-5 vh-100"></div>
+                <div id="map" class="col-lg-5 vh-100"></div>
             </div>
         </div>        
     </body>

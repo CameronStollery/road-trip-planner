@@ -30,3 +30,7 @@ body {
 .constraint {
     background-color: lightcoral;
 }
+
+.hasCar:hover {
+    cursor: pointer;
+}

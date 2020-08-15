@@ -1,6 +1,6 @@
 // Initialise Google Maps map
 var mapScript = document.createElement('script');
-mapScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAZqd560N7fjqbqMCLhk-uDZOpX29xsYDQ&callback=initMap';
+mapScript.src = 'https://maps.googleapis.com/maps/api/js?key=&libraries=drawing,places&callback=initMap';
 mapScript.defer = true;
 
 window.initMap = function() {
@@ -10,10 +10,9 @@ window.initMap = function() {
       });
 };
 
-document.head.appendChild(script);
+document.head.appendChild(mapScript);
 
-// Initialise Google Maps drawing library
-
+// TODO Initialise Google Maps drawing library
 
 $('#people').on('click', '.delete', function() {
   var person = $(this).parent().parent();
@@ -36,29 +35,29 @@ function personHtml(n) {
           <div class="form-row"> \
               <div class="col-md-auto"> \
                   <label class="sr-only" for="name-${n}">Name</label> \
-                  <input type="text" class="form-control my-2 mr-sm-0" id="name-${n}" placeholder="Name"> \
+                  <input type="text" class="form-control my-2 mr-sm-0" id="name-${n}" name="name-${n}" placeholder="Name"> \
               </div> \
               <div class="col-md-4"> \
                   <label class="sr-only" for="addr-${n}">Address</label> \
-                  <input type="text" class="form-control my-2 mr-sm-0" id="addr-${n}" placeholder="Address">   \  
+                  <input type="text" class="form-control my-2 mr-sm-0" id="addr-${n}" name="addr-${n}" placeholder="Address">   \  
               </div> \
               <div class="col-md-auto form-inline ml-2"> \
-                    <input class="form-check-input hasCar" type="checkbox" id="hasCar-${n}"> \
+                    <input class="form-check-input hasCar" type="checkbox" id="hasCar-${n}" name="hasCar-${n}"> \
                     <label class="form-check-label hasCar" for="hasCar-${n}">Has car</label> \
                   </div> \
               <div class="col-md-auto form-inline"> \
-                  <input type="number" min="0" max="50" class="form-control mr-2" id="passengers-${n}" placeholder="0" disabled> \
+                  <input type="number" min="0" max="50" class="form-control mr-2" id="passengers-${n}" name="passengers-${n}" placeholder="0" disabled> \
                   <label class="" for="passengers-${n}">passenger seats available</label> \
               </div> \
           </div> \
           <div class="form-row"> \
               <div class="col-md-auto form-inline"> \
                   <label class="mr-2 mb-0" for="pickup-${n}">Arriving</label> \
-                  <input type="date" class="form-control my-2 mr-sm-0" id="pickup-${n}" placeholder="Pick-up date">     \
+                  <input type="date" class="form-control my-2 mr-sm-0" id="pickup-${n}" name="pickup-${n}" placeholder="Pick-up date">     \
               </div> \
               <div class="col-md-auto form-inline"> \
                   <label class="mr-2 mb-0" for="dropoff-${n}">Leaving</label> \
-                  <input type="date" class="form-control my-2 mr-sm-0" id="dropoff-${n}" placeholder="Drop-off date">   \  
+                  <input type="date" class="form-control my-2 mr-sm-0" id="dropoff-${n}" name="dropoff-${n}" placeholder="Drop-off date">   \  
               </div> \
           </div> \
       </div> \

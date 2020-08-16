@@ -1,26 +1,53 @@
-// Initialise Google Maps map
-var mapScript = document.createElement('script');
-mapScript.src = 'https://maps.googleapis.com/maps/api/js?key=&libraries=drawing,places&callback=initMap';
-mapScript.defer = true;
+// Dictionary of objects providing autocomplete functionality to address fields
+var autocompleteContainer = {},
 
-window.initMap = function() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -37.8136, lng: 144.9631},
-        zoom: 10
-      });
+// Options parameter for autocomplete objects
+    options = {
+      types: ['address']
+    },
+
+// Function for enabling autocomplete on an address field
+    addAutocompleteField;
+
+// Function to set up functionality from Google Maps JavaScript API, called once Google scripts has loaded
+function initMap() {
+  // Initialise map centred on Melbourne
+  // TODO change to centre on current location + add location bias to autocomplete field
+  map = new google.maps.Map($('#map')[0], {
+    center: {lat: -37.8136, lng: 144.9631},
+    zoom: 10
+  });
+  
+  // Attach autocomplete functionality to address field with given id
+  addAutocompleteField = function(id) {
+    autocompleteContainer[id] = new google.maps.places.Autocomplete($(id)[0], options);
+    autocompleteContainer[id].setFields(['formatted_address', 'geometry']);   // Only need address and coordinates
+    autocompleteContainer[id].addListener('place_changed', getPlaceDetails);  // Fire event when a place is selected
+  }
+
+  // Initialise with autocomplete objects for addr-dest and addr-1
+  addAutocompleteField('dest');
+  addAutocompleteField('person-1');
 };
 
-document.head.appendChild(mapScript);
+function getPlaceDetails() {
+  console.log('Place changed!');
+}
 
 // TODO Initialise Google Maps drawing library
 
+// Add functionality to UI controls
+
+// Delete buttons
 $('#people').on('click', '.delete', function() {
   var person = $(this).parent().parent();
+  delete autocompleteContainer[person.attr('id')];  // remove autcomplete functionality from address field
   person.slideUp(200, function() {
     person.remove();
   });
 });
 
+// Enable number of passengers field when selected that person has a car
 $('#people').on('click', 'input.hasCar', function() {
   var passengers = $(this).parent().next().find('input');
   passengers.prop('disabled', !passengers.prop('disabled'));
@@ -70,8 +97,19 @@ function personHtml(n) {
   `
 };
 
+// Add a new person to the form when "add person" is clicked
 $('#addPerson').click(function() {
   numPeople += 1;
   $('#addPersonRow').before(personHtml(numPeople));
   $(`#person-${numPeople}`).hide().slideDown(200);
+  addAutocompleteField(`person-${numPeople}`);
 });
+
+// Prevent form from submitting when user presses enter key (from https://www.hashbangcode.com/article/prevent-enter-key-submitting-forms-jquery)
+$('form input').keydown(function (e) {
+  if (e.keyCode == 13) {
+      e.preventDefault();
+      return false;
+  }
+});
+

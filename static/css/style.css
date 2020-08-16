@@ -34,3 +34,5 @@ body {
 .hasCar:hover {
     cursor: pointer;
 }
+
+/* TODO style autocomplete suggestion box */

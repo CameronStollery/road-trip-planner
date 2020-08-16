@@ -7,6 +7,8 @@
                 <div class="container">
                     <h1 class="display-3">Road Trip Pickup Planner</h1>
                     <form action="{{ url_for('results') }}" method="get">
+                        <!-- Hidden element to prevent autocomplete -->
+                        <!-- <input class="d-none" autocomplete="false" name="hidden" type="text" > -->
                         <div id="destination">
                             <h3>Destination</h3>
                             <div class="row input-row destination py-2 px-0 my-3">

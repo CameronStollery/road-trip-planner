@@ -187,12 +187,12 @@ function personHtml(n) {
           </div>
           <div class="form-row">
               <div class="col-md-auto form-inline">
-                  <label class="mr-2 mb-0" for="pickup-${n}">Arriving</label>
-                  <input type="date" class="form-control my-2 mr-sm-0" id="pickup-${n}" name="pickup-${n}" placeholder="Pick-up date" required>
+                  <label class="mr-2 mb-0" for="start-${n}">Arriving</label>
+                  <input type="date" class="form-control my-2 mr-sm-0 start-field" id="start-${n}" name="start-${n}" placeholder="Pick-up date" required>
               </div>
               <div class="col-md-auto form-inline">
-                  <label class="mr-2 mb-0" for="dropoff-${n}">Leaving</label>
-                  <input type="date" class="form-control my-2 mr-sm-0" id="dropoff-${n}" name="dropoff-${n}" placeholder="Drop-off date" required>
+                  <label class="mr-2 mb-0" for="end-${n}">Leaving</label>
+                  <input type="date" class="form-control my-2 mr-sm-0 end-field" id="end-${n}" name="end-${n}" placeholder="Drop-off date" required>
               </div>
           </div>
       </div>
@@ -210,6 +210,8 @@ $('#addPerson').click(function() {
   numPeople += 1;
   $('#addPersonRow').before(personHtml(numPeople));
   $(`#person-${numPeople}`).hide().slideDown(200);
+  $(`#start-${numPeople}`).val($('#start-dest').val());   // Set arrival date to match trip arrival date
+  $(`#end-${numPeople}`).val($('#end-dest').val()); // Set departure date to match trip departure date
   addAutocompleteField(`person-${numPeople}`, `addr-${numPeople}`);
 });
 
@@ -254,6 +256,16 @@ $('#details').on('change', '.addr-field', function() {
     }
   };
 });
+
+// Update any empty date fields to match destination date fields
+$('#start-dest').on('change', function() {
+  // If the date field is currently empty, set its value to equal that of destination, otherwise set to current value
+  $('#people').find('.start-field').val((_, currentVal) => currentVal === '' ? $('#start-dest').val() : currentVal);
+});
+$('#end-dest').on('change', function() {
+  $('#people').find('.end-field').val((_, currentVal) => currentVal === '' ? $('#end-dest').val() : currentVal);
+})
+// TODO make new date fields default to dest values
 
 // Prevent form from submitting when user presses enter key (from https://www.hashbangcode.com/article/prevent-enter-key-submitting-forms-jquery)
 $('form input').keydown(function (e) {

@@ -6,27 +6,28 @@
             <div id="details" class="col-lg-7 bg-light vh-100">
                 <div class="container">
                     <h1 class="display-3">Road Trip Pickup Planner</h1>
-                    <form action="{{ url_for('results') }}" method="get">
+                    <form action="{{ url_for('results') }}" method="post">
                         <!-- Hidden element to prevent autocomplete -->
-                        <!-- <input class="d-none" autocomplete="false" name="hidden" type="text" > -->
-                        <div id="destination">
+                        <!-- <input class=" " autocomplete="false" name="hidden" type="text" > -->
+                        <div id="destination" class="details-section">
                             <h3>Destination</h3>
-                            <div class="row input-row destination py-2 px-0 my-3">
+                            <div class="row input-row destination py-2 px-0 my-3 details-row" id="dest">
                                 <div class="col-12">
                                     <div class="form-row">
                                         <div class="col-md-4">
                                             <label class="sr-only" for="addr-dest">Address</label>
-                                            <input type="text" class="form-control my-2 mr-sm-0" id="addr-dest" name="addr-dest" placeholder="Address">    
+                                            <input type="text" class="form-control my-2 mr-sm-0 addr-field" id="addr-dest" name="addr-dest" placeholder="Address" required>
+                                            <input type="text" class="d-none coords-field" id="coords-dest" name="coords-dest">    
                                         </div>
                                         <div class="col-md-auto">
                                             <div class="row">
                                                 <div class="col-md-auto form-inline">
                                                     <label class="mr-2 mb-0" for="pickup-dest">Arrival date</label>
-                                                    <input type="date" class="form-control my-2 mr-sm-0" id="pickup-dest" name="pickup-dest" placeholder="Pick-up date">    
+                                                    <input type="date" class="form-control my-2 mr-sm-0" id="pickup-dest" name="pickup-dest" placeholder="Pick-up date" required>    
                                                 </div>
                                                 <div class="col-md-auto form-inline">
                                                     <label class="mr-2 mb-0" for="dropoff-dest">Departure date</label>
-                                                    <input type="date" class="form-control my-2 mr-sm-0" id="dropoff-dest" name="dropoff-dest" placeholder="Drop-off date">    
+                                                    <input type="date" class="form-control my-2 mr-sm-0" id="dropoff-dest" name="dropoff-dest" placeholder="Drop-off date" required>    
                                                 </div>
                                             </div>
                                         </div>
@@ -34,18 +35,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="people">
+                        <div id="people" class="details-section">
                             <h3>People</h3>
-                            <div class="row input-row person py-2 px-0 my-3" id="person-1">
+                            <div class="row input-row person py-2 px-0 my-3 details-row" id="person-1">
                                 <div class="col-11">
                                     <div class="form-row">
                                         <div class="col-md-auto">
                                             <label class="sr-only" for="name-1">Name</label>
-                                            <input type="text" class="form-control my-2 mr-sm-0" id="name-1" name="name-1" placeholder="Name">
+                                            <input type="text" class="form-control my-2 mr-sm-0 name-field" id="name-1" name="name-1" placeholder="Name" required>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="sr-only" for="addr-1">Address</label>
-                                            <input type="text" class="form-control my-2 mr-sm-0" id="addr-1" name="addr-1" placeholder="Address">    
+                                            <input type="text" class="form-control my-2 mr-sm-0 addr-field" id="addr-1" name="addr-1" placeholder="Address" required>
+                                            <input type="text" class="d-none coords-field" id="coords-1" name="coords-1">    
                                         </div>
                                         <div class="col-md-auto form-inline ml-2">
                                                 <input class="form-check-input hasCar" type="checkbox" id="hasCar-1" name="hasCar-1">
@@ -59,11 +61,11 @@
                                     <div class="form-row">
                                         <div class="col-md-auto form-inline">
                                             <label class="mr-2 mb-0" for="pickup-1">Arriving</label>
-                                            <input type="date" class="form-control my-2 mr-sm-0" id="pickup-1" name="pickup-1" placeholder="Pick-up date">    
+                                            <input type="date" class="form-control my-2 mr-sm-0" id="pickup-1" name="pickup-1" placeholder="Pick-up date" required>    
                                         </div>
                                         <div class="col-md-auto form-inline">
                                             <label class="mr-2 mb-0" for="dropoff-1">Leaving</label>
-                                            <input type="date" class="form-control my-2 mr-sm-0" id="dropoff-1" name="dropoff-1" placeholder="Drop-off date">    
+                                            <input type="date" class="form-control my-2 mr-sm-0" id="dropoff-1" name="dropoff-1" placeholder="Drop-off date" required>    
                                         </div>
                                     </div>
                                 </div>

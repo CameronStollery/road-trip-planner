@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, url_for
+from werkzeug.datastructures import ImmutableOrderedMultiDict
+import backend
 
 application = Flask(__name__)
 
@@ -6,9 +8,10 @@ application = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@application.route('/results')
+@application.route('/results', methods = ['POST'])
 def results():
-    return render_template('results.html')
+    results = backend.compute_results(request.form)
+    return render_template('results.html', text = results)
 
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be

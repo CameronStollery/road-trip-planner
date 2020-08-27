@@ -1,12 +1,23 @@
 {% extends "base.html" %}
 
+{% block title %}
+<title>Results - Road Trip Pickup Planner</title>
+{% endblock %}
+
 {% block content %}
     <div class="container-fluid">
         <div class="row">
             <div id="details" class="col-lg-7 bg-light vh-100">
                 <div class="container">
                     <h1 class="display-3">Road Trip Pickup Planner</h1>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae modi laudantium dolorum adipisci fuga vero iste, non laboriosam totam eos corporis ex? Quis, dolore maiores. Ut quisquam aliquid quis accusamus.
+                    <p>This part of the app has not yet been implemented, sorry 😢</p>
+                    {% if text %}
+                        <p>In the mean time, here is what we've done with your data so far:</p>
+                        <code>{{ text }}</code>
+                    {% else %}
+                        <p>We didn't receive any form input.</p>
+                    {% endif %}
+                    <p><a href="{{ url_for('index') }}">Back to the main page</a></p>
                 </div>
             </div>
             <div id="map" class="col-lg-5 vh-100"></div>
